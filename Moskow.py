@@ -36,3 +36,18 @@ print('Изображение ' + weather.get_weather_icon_name())
 print('Ветер ' + str(weather.get_wind()))
 
 translate = ('Moscow')
+def WhatIsCloudness():
+    if 0 <= weather.get_clouds() <= 10:
+        return 'ясная'
+    if 10 <= weather.get_clouds() <= 30:
+        return 'немного облачная'
+    if 30 <= weather.get_clouds() <= 70:
+        return 'пасмурная'
+    if 70 <= weather.get_clouds() <= 100:
+        return 'мрачная'
+
+print('Погода в городе ' + translate[location.get_name()] + ' на сегодня  '+ str(observation.get_reception_time('date'))
+ + ' '+ WhatIsCloudness() + ' ,облачность составляет  '+ str(weather.get_clouds()) + '%, давление ' + str(weather.get_pressure()['press']) +
+'мм рт.ст.,температура ' + str(weather.get_temperature('celsius')['temp']) + ' градусов Цельсия ' +' Днем:'+
+str(weather.get_temperature('celsius')['temp_max']) + ' Ночью:' +
+str(weather.get_temperature('celsius')['temp_min'])  + ' скорость ветра ' + str(weather.get_wind()['speed']) + ' м/с. ')
